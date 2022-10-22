@@ -1,4 +1,4 @@
-# Google Cloud Platform - Logging
+# <img align="left" width="45" height="45" src="https://user-images.githubusercontent.com/1610100/197364652-b03d272c-280d-420d-82b4-e4d8c64548dc.png"> Google Cloud Platform - Logging
 
 **[GitHub Actions](https://github.com/osinfra-io/google-cloud-logging/actions):**
 
