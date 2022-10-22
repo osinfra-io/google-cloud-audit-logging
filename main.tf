@@ -10,14 +10,14 @@ terraform {
   }
 }
 
-provider "google" {
-}
-
-# Max of 200 sinks per project, if you need more, create a new project
+# Google Project Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-google-project
 
 module "logging_projects" {
   source = "git@github.com:osinfra-io/terraform-google-project"
-
+  
+  # Max of 200 sinks per project, if you need more, create a new project
+  
   for_each = toset(
     [
       "logs01"
