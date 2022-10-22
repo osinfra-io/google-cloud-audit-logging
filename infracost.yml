@@ -4,4 +4,17 @@
 version: 0.1
 
 projects:
-  - name: "Google Cloud Platform - Logging"
+  - name: "Google Cloud Platform - Logging: Non-production"
+    path: /
+    terraform_var_files:
+      - tfvars/nonprod.tfvars
+
+  - name: "Google Cloud Platform - Logging: Production"
+    path: /
+    terraform_var_files:
+      - tfvars/prod.tfvars
+
+  - name: "Google Cloud Platform - Logging: Sandbox"
+    path: /
+    terraform_var_files:
+      - tfvars/sb.tfvars
