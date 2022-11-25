@@ -4,6 +4,10 @@ terraform {
   # https://www.terraform.io/language/providers/requirements#requiring-providers
 
   required_providers {
+
+    # Google Cloud Platform Provider
+    # https://registry.terraform.io/providers/hashicorp/google/latest/docs
+
     google = {
       source = "hashicorp/google"
     }
@@ -14,10 +18,10 @@ terraform {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "projects" {
-  source = "git@github.com:osinfra-io/terraform-google-project"
-  
+  source = "github.com/osinfra-io/terraform-google-project"
+
   # Max of 200 sinks per project, if you need more, create a new project
-  
+
   for_each = toset(
     [
       "logs01"

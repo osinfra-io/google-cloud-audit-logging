@@ -4,17 +4,20 @@
 version: 0.1
 
 projects:
-  - name: "Google Cloud Platform - Logging: Non-production"
-    path: /
-    terraform_var_files:
-      - tfvars/nonprod.tfvars
-
-  - name: "Google Cloud Platform - Logging: Production"
-    path: /
-    terraform_var_files:
-      - tfvars/prod.tfvars
-
-  - name: "Google Cloud Platform - Logging: Sandbox"
-    path: /
+  - name: "google-cloud-logging - Sandbox: Global"
+    path: global
     terraform_var_files:
       - tfvars/sb.tfvars
+    usage_file: global/tfvars/infracost-usage.yml
+
+  - name: "google-cloud-logging - Nonprod: Global"
+    path: global
+    terraform_var_files:
+      - tfvars/nonprod.tfvars
+    usage_file: global/tfvars/infracost-usage.yml
+
+  - name: "google-cloud-logging - Production: Global"
+    path: global
+    terraform_var_files:
+      - tfvars/prod.tfvars
+    usage_file: global/tfvars/infracost-usage.yml
