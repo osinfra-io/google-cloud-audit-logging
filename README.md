@@ -12,4 +12,4 @@ Google Cloud services write audit logs that record administrative activities and
 
 ## Terraform Documentation
 
-[Global Infrastructure](global/README.md)
+[Global Infrastructure](global/infra/README.md)
