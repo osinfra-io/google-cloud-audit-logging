@@ -7,7 +7,7 @@ variable "billing_account" {
   sensitive   = true
 }
 
-variable "env" {
+variable "environment" {
   description = "The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production)"
   type        = string
   default     = "sb"
@@ -18,7 +18,8 @@ variable "folder_id" {
   type        = string
 }
 
-variable "terraform_service_account_group" {
-  description = "The group email address for the Terraform backend service account"
+variable "primary_domain" {
+  description = "The main domain associated with your Google Workspace account. By default, your users get a username at this domain"
   type        = string
+  default     = "osinfra.io"
 }

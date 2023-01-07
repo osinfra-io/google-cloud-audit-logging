@@ -1,2 +1,2 @@
-env       = "nonprod"
-folder_id = "196625876508"
+environment = "nonprod"
+folder_id   = "859475012086"

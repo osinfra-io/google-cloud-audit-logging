@@ -1,2 +1,2 @@
-env       = "prod"
-folder_id = "356259596809"
+environment = "prod"
+folder_id   = "450157769308"
