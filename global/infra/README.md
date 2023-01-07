@@ -34,5 +34,8 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_project_ids"></a> [project\_ids](#output\_project\_ids) | The project IDs |
+| <a name="output_project_numbers"></a> [project\_numbers](#output\_project\_numbers) | The project numbers |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
