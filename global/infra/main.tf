@@ -24,23 +24,23 @@ module "projects" {
 
   for_each = toset(
     [
-      "logs01"
+      "audit01"
     ]
   )
 
   billing_account = var.billing_account
   cost_center     = "x001"
-  env             = var.env
+  description     = each.key
+  environment     = var.environment
   folder_id       = var.folder_id
 
   labels = {
-    "environment" = var.env,
-    "system"      = "logging",
-    "team"        = "shared"
+    "environment" = var.environment,
+    "description" = "audit",
+    "platform"    = "google-cloud-landing-zone"
   }
 
   prefix = "shared"
-  system = each.key
 }
 
 # Project IAM Member Resource
@@ -51,11 +51,11 @@ resource "google_project_iam_member" "terraform_service_account_groups" {
 
   for_each = toset(
     [
-      "logs01"
+      "audit01"
     ]
   )
 
-  member  = "group:${var.terraform_service_account_group}"
+  member  = "group:shared-terraform-backend-${var.environment}@${var.primary_domain}"
   project = module.projects[each.key].project_id
   role    = "roles/resourcemanager.projectIamAdmin"
 }
