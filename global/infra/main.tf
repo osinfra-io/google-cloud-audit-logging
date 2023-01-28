@@ -40,7 +40,7 @@ module "projects" {
     "platform"    = "google-cloud-landing-zone"
   }
 
-  prefix = "shared"
+  prefix = "plt-lz"
 }
 
 # Project IAM Member Resource
@@ -55,7 +55,7 @@ resource "google_project_iam_member" "terraform_service_account_groups" {
     ]
   )
 
-  member  = "group:shared-terraform-backend-${var.environment}@${var.primary_domain}"
+  member  = "group:terraform-backend-${var.environment}@${var.primary_domain}"
   project = module.projects[each.key].project_id
   role    = "roles/resourcemanager.projectIamAdmin"
 }
