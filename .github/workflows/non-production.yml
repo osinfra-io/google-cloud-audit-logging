@@ -1,11 +1,10 @@
-name: Sandbox
+name: Non-Production
 
 on:
   workflow_dispatch:
-  pull_request:
-    types:
-      - opened
-      - synchronize
+  push:
+    branches:
+      - main
     paths-ignore:
       - "**.md"
 
@@ -21,14 +20,14 @@ jobs:
     uses: osinfra-io/github-terraform-gcp-called-workflows/.github/workflows/plan-and-apply.yml@v0.1.1
     with:
       checkout_ref: ${{ github.ref }}
-      github_environment: "Sandbox Infrastructure: Global"
-      service_account: plt-lz-audit-github@ptl-lz-terraform-tf91-sb.iam.gserviceaccount.com
-      terraform_plan_args: -var-file=tfvars/sandbox.tfvars
-      terraform_state_bucket: plt-lz-audit-2c8b-sb
+      github_environment: "Non-Production Infrastructure: Global"
+      service_account: plt-lz-audit-github@ptl-lz-terraform-tf05-nonprod.iam.gserviceaccount.com
+      terraform_plan_args: -var-file=tfvars/non-production.tfvars
+      terraform_state_bucket: plt-lz-audit-3bfe-nonprod
       terraform_version: ${{ vars.TERRAFORM_VERSION }}
-      terraform_workspace: global-sandbox
+      terraform_workspace: global-non-production
       working_directory: global/infra
-      workload_identity_provider: projects/746490462722/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
+      workload_identity_provider: projects/992372365053/locations/global/workloadIdentityPools/github-actions/providers/github-actions-oidc
     secrets:
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
       terraform_plan_secret_args: -var="billing_account=${{ secrets.BILLING_ACCOUNT }}"

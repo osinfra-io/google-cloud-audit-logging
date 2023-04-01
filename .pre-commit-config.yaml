@@ -11,13 +11,6 @@ repos:
       - id: check-symlinks
       - id: no-commit-to-branch
 
-  - repo: https://github.com/bridgecrewio/checkov
-    rev: 2.3.48
-    hooks:
-      - id: checkov
-        verbose: true
-        args: [--soft-fail, --download-external-modules=true]
-
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.77.1
     hooks:
