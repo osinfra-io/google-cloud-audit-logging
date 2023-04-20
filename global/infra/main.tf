@@ -18,7 +18,7 @@ terraform {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "projects" {
-  source = "github.com/osinfra-io/terraform-google-project?ref=v0.1.0"
+  source = "github.com/osinfra-io/terraform-google-project?ref=v0.1.1"
 
   # Max of 200 sinks per project, if you need more, create a new project
 
