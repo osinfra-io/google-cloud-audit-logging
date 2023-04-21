@@ -15,7 +15,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_projects"></a> [projects](#module\_projects) | github.com/osinfra-io/terraform-google-project | v0.1.0 |
+| <a name="module_projects"></a> [projects](#module\_projects) | github.com/osinfra-io/terraform-google-project | v0.1.1 |
 
 ## Resources
 
