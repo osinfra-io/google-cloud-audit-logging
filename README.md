@@ -1,4 +1,4 @@
-# <img align="left" width="45" height="45" src="https://user-images.githubusercontent.com/1610100/197364652-b03d272c-280d-420d-82b4-e4d8c64548dc.png"> Google Cloud Platform - Audit Logging
+# <img align="left" width="45" height="45" src="https://github.com/osinfra-io/google-cloud-audit-logging/assets/1610100/297beb9a-6e53-408c-9c09-e712781be4e0"> Google Cloud Platform - Audit Logging
 
 **[GitHub Actions](https://github.com/osinfra-io/google-cloud-audit-logging/actions):**
 
