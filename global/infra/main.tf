@@ -5,6 +5,13 @@ terraform {
 
   required_providers {
 
+    # Datadog Provider
+    # https://registry.terraform.io/providers/DataDog/datadog/latest/docs
+
+    datadog = {
+      source = "datadog/datadog"
+    }
+
     # Google Cloud Platform Provider
     # https://registry.terraform.io/providers/hashicorp/google/latest/docs
 
@@ -14,11 +21,33 @@ terraform {
   }
 }
 
+provider "datadog" {
+  api_key = var.datadog_api_key
+  app_key = var.datadog_app_key
+}
+
+# Datadog Google Cloud Platform Integration Module (osinfra.io)
+# https://github.com/osinfra-io/terraform-datadog-google-integration
+
+module "datadog" {
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.0"
+
+  for_each = toset(
+    [
+      "audit01"
+    ]
+  )
+
+  api_key         = var.datadog_api_key
+  is_cspm_enabled = true
+  project         = module.projects[each.key].project_id
+}
+
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
 
 module "projects" {
-  source = "github.com/osinfra-io/terraform-google-project?ref=v0.1.2"
+  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.2"
 
   # Max of 200 sinks per project, if you need more, create a new project
 
@@ -47,8 +76,6 @@ module "projects" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_member
 
 resource "google_project_iam_member" "terraform_service_account_groups" {
-  # checkov:skip=CKV_GCP_49: Check this out in #24
-
   for_each = toset(
     [
       "audit01"
