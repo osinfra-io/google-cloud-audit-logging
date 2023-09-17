@@ -1,7 +1,6 @@
 name: Production
 
 on:
-  workflow_dispatch:
   workflow_run:
     workflows:
       - Non-Production
