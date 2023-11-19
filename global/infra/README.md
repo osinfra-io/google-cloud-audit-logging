@@ -9,13 +9,13 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.82.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.6.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_projects"></a> [projects](#module\_projects) | github.com/osinfra-io/terraform-google-project//global | v0.1.2 |
+| <a name="module_projects"></a> [projects](#module\_projects) | github.com/osinfra-io/terraform-google-project//global | v0.1.6 |
 
 ## Resources
 
