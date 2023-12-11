@@ -18,6 +18,13 @@ terraform {
     google = {
       source = "hashicorp/google"
     }
+
+    # Random Provider
+    # https://registry.terraform.io/providers/hashicorp/random/latest/docs
+
+    random = {
+      source = "hashicorp/random"
+    }
   }
 }
 
@@ -58,10 +65,15 @@ module "projects" {
   )
 
   billing_account = var.billing_account
-  cost_center     = "x001"
-  description     = each.key
-  environment     = var.environment
-  folder_id       = var.folder_id
+
+  # Setting this to true is irreversible, you will need to delete the project to remove it.
+  # For testing purposes we are setting it to false so we can destroy the bucket and recreate it if needed.
+
+  cis_2_2_logging_bucket_locked = false
+  cost_center                   = "x001"
+  description                   = each.key
+  environment                   = var.environment
+  folder_id                     = var.folder_id
 
   labels = {
     "environment" = var.environment,
