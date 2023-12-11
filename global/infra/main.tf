@@ -64,7 +64,11 @@ module "projects" {
     ]
   )
 
-  billing_account               = var.billing_account
+  billing_account = var.billing_account
+
+  # Setting this to true is irreversible, you will need to delete the project to remove it.
+  # For testing purposes we are setting it to false so we can destroy the bucket and recreate it if needed.
+
   cis_2_2_logging_bucket_locked = false
   cost_center                   = "x001"
   description                   = each.key
