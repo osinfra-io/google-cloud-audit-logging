@@ -57,11 +57,12 @@ module "projects" {
     ]
   )
 
-  billing_account = var.billing_account
-  cost_center     = "x001"
-  description     = each.key
-  environment     = var.environment
-  folder_id       = var.folder_id
+  billing_account               = var.billing_account
+  cis_2_2_logging_bucket_locked = false
+  cost_center                   = "x001"
+  description                   = each.key
+  environment                   = var.environment
+  folder_id                     = var.folder_id
 
   labels = {
     "environment" = var.environment,
