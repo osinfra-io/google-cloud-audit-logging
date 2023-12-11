@@ -43,56 +43,56 @@ provider "datadog" {
 #   project         = module.projects[each.key].project_id
 # }
 
-# Google Project Module (osinfra.io)
-# https://github.com/osinfra-io/terraform-google-project
+# # Google Project Module (osinfra.io)
+# # https://github.com/osinfra-io/terraform-google-project
 
-module "projects" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.8"
+# module "projects" {
+#   source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.8"
 
-  # Max of 200 sinks per project, if you need more, create a new project
+#   # Max of 200 sinks per project, if you need more, create a new project
 
-  for_each = toset(
-    [
-      "audit01"
-    ]
-  )
+#   for_each = toset(
+#     [
+#       "audit01"
+#     ]
+#   )
 
-  billing_account               = var.billing_account
-  cis_2_2_logging_bucket_locked = false
-  cost_center                   = "x001"
-  description                   = each.key
-  environment                   = var.environment
-  folder_id                     = var.folder_id
+#   billing_account               = var.billing_account
+#   cis_2_2_logging_bucket_locked = false
+#   cost_center                   = "x001"
+#   description                   = each.key
+#   environment                   = var.environment
+#   folder_id                     = var.folder_id
 
-  labels = {
-    "environment" = var.environment,
-    "description" = "audit",
-    "platform"    = "google-cloud-landing-zone"
-  }
+#   labels = {
+#     "environment" = var.environment,
+#     "description" = "audit",
+#     "platform"    = "google-cloud-landing-zone"
+#   }
 
-  prefix = "plt-lz"
+#   prefix = "plt-lz"
 
-  services = [
-    "cloudasset.googleapis.com",
-    "cloudbilling.googleapis.com",
-    "cloudresourcemanager.googleapis.com",
-    "compute.googleapis.com",
-    "iam.googleapis.com",
-    "monitoring.googleapis.com"
-  ]
-}
+#   services = [
+#     "cloudasset.googleapis.com",
+#     "cloudbilling.googleapis.com",
+#     "cloudresourcemanager.googleapis.com",
+#     "compute.googleapis.com",
+#     "iam.googleapis.com",
+#     "monitoring.googleapis.com"
+#   ]
+# }
 
-# Project IAM Member Resource
-# https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_member
+# # Project IAM Member Resource
+# # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_member
 
-resource "google_project_iam_member" "terraform_service_account_groups" {
-  for_each = toset(
-    [
-      "audit01"
-    ]
-  )
+# resource "google_project_iam_member" "terraform_service_account_groups" {
+#   for_each = toset(
+#     [
+#       "audit01"
+#     ]
+#   )
 
-  member  = "group:terraform-backend-${var.environment}@${var.primary_domain}"
-  project = module.projects[each.key].project_id
-  role    = "roles/resourcemanager.projectIamAdmin"
-}
+#   member  = "group:terraform-backend-${var.environment}@${var.primary_domain}"
+#   project = module.projects[each.key].project_id
+#   role    = "roles/resourcemanager.projectIamAdmin"
+# }
