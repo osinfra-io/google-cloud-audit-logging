@@ -7,15 +7,21 @@ No requirements.
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 5.8.0 |
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_projects"></a> [projects](#module\_projects) | github.com/osinfra-io/terraform-google-project//global | v0.1.8 |
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [google_project_iam_member.terraform_service_account_groups](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 
 ## Inputs
 
@@ -30,5 +36,8 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_project_ids"></a> [project\_ids](#output\_project\_ids) | The project IDs |
+| <a name="output_project_numbers"></a> [project\_numbers](#output\_project\_numbers) | The project numbers |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
