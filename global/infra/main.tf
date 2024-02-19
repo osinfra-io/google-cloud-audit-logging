@@ -54,7 +54,7 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "projects" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.8"
+  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.9"
 
   # Max of 200 sinks per project, if you need more, create a new project
 
