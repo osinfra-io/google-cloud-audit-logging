@@ -76,9 +76,10 @@ module "projects" {
   folder_id                     = var.folder_id
 
   labels = {
-    "environment" = var.environment,
-    "description" = "audit",
-    "platform"    = "google-cloud-landing-zone"
+    env        = var.environment
+    repository = "google-cloud-audit-logging"
+    platform   = "google-cloud-landing-zone"
+    team       = "platform-google-cloud-landing-zone"
   }
 
   prefix = "plt-lz"
