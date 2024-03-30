@@ -37,11 +37,10 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.4"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.1.5"
   count  = var.enable_datadog ? 1 : 0
 
   api_key         = var.datadog_api_key
-  cost_center     = "x001"
   is_cspm_enabled = true
   labels          = local.labels
   project         = module.projects["audit01"].project_id
@@ -51,7 +50,7 @@ module "datadog" {
 # https://github.com/osinfra-io/terraform-google-project
 
 module "projects" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.1.9"
+  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.2.0"
 
   # Max of 200 sinks per project, if you need more, create a new project
 
@@ -67,7 +66,6 @@ module "projects" {
   # For testing purposes we are setting it to false so we can destroy the bucket and recreate it if needed.
 
   cis_2_2_logging_bucket_locked = false
-  cost_center                   = "x001"
   description                   = each.key
   environment                   = var.environment
   folder_id                     = var.folder_id
