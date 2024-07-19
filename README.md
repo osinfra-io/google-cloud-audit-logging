@@ -46,4 +46,41 @@ Links to documentation and other resources required to develop and iterate in th
 ### 📓 Terraform Documentation
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+#### Providers
+
+| Name | Version |
+|------|---------|
+| google | 5.38.0 |
+
+#### Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| datadog | github.com/osinfra-io/terraform-datadog-google-integration//global | v0.1.6 |
+| projects | github.com/osinfra-io/terraform-google-project//global | v0.2.2 |
+
+#### Resources
+
+| Name | Type |
+|------|------|
+| [google_project_iam_member.terraform_service_account_groups](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
+
+#### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
+| datadog\_api\_key | Datadog API key | `string` | n/a | yes |
+| datadog\_app\_key | Datadog APP key | `string` | n/a | yes |
+| enable\_datadog | Enable Datadog integration | `bool` | `false` | no |
+| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
+| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| primary\_domain | The main domain associated with your Google Workspace account. By default, your users get a username at this domain | `string` | `"osinfra.io"` | no |
+
+#### Outputs
+
+| Name | Description |
+|------|-------------|
+| project\_ids | The project IDs |
+| project\_numbers | The project numbers |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

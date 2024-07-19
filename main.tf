@@ -86,6 +86,8 @@ module "projects" {
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_member
 
 resource "google_project_iam_member" "terraform_service_account_groups" {
+  # Ensure roles do not impersonate or manage Service Accounts used at project level
+  # checkov:skip=CKV_GCP_49: This is a requirement for Terraform to manage resources
   for_each = toset(
     [
       "audit01"
