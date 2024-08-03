@@ -37,20 +37,21 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration//global?ref=v0.2.0"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.2.1"
   count  = var.enable_datadog ? 1 : 0
 
-  api_key         = var.datadog_api_key
-  is_cspm_enabled = true
-  labels          = local.labels
-  project         = module.projects["audit01"].project_id
+  api_key                            = var.datadog_api_key
+  is_cspm_enabled                    = true
+  is_security_command_center_enabled = true
+  labels                             = local.labels
+  project                            = module.projects["audit01"].project_id
 }
 
 # Google Project Module (osinfra.io)
 # https://github.com/osinfra-io/terraform-google-project
 
 module "projects" {
-  source = "github.com/osinfra-io/terraform-google-project//global?ref=v0.3.0"
+  source = "github.com/osinfra-io/terraform-google-project?ref=v0.3.0"
 
   # Max of 200 sinks per project, if you need more, create a new project
 
