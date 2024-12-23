@@ -38,13 +38,13 @@ provider "datadog" {
 
 module "datadog" {
   source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.0"
-  count  = var.enable_datadog ? 1 : 0
+  count  = var.datadog_enable ? 1 : 0
 
   api_key                            = var.datadog_api_key
   is_cspm_enabled                    = true
   is_security_command_center_enabled = true
-  labels                             = local.labels
-  project                            = module.projects["audit01"].project_id
+  labels                             = module.helpers.labels
+  project                            = module.projects["audit01"].id
 }
 
 # Google Project Module (osinfra.io)
@@ -61,16 +61,15 @@ module "projects" {
     ]
   )
 
-  billing_account = var.billing_account
+  billing_account = var.project_billing_account
 
   # Setting this to true is irreversible, you will need to delete the project to remove it.
   # For testing purposes we are setting it to false so we can destroy the bucket and recreate it if needed.
 
   cis_2_2_logging_bucket_locked = false
   description                   = each.key
-  environment                   = var.environment
-  folder_id                     = var.folder_id
-  labels                        = local.labels
+  folder_id                     = var.project_folder_id
+  labels                        = module.helpers.labels
   prefix                        = "plt-lz"
 
   services = [
@@ -95,7 +94,7 @@ resource "google_project_iam_member" "terraform_service_account_groups" {
     ]
   )
 
-  member  = "group:terraform-backend-${var.environment}@${var.primary_domain}"
-  project = module.projects[each.key].project_id
+  member  = "group:terraform-backend-${module.helpers.env}@${var.primary_domain}"
+  project = module.projects[each.key].id
   role    = "roles/resourcemanager.projectIamAdmin"
 }

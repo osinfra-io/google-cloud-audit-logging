@@ -1,2 +1,1 @@
-environment = "prod"
-folder_id   = "606239917687"
+project_folder_id = "606239917687"
