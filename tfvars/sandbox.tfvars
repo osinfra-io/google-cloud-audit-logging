@@ -1,2 +1,2 @@
-enable_datadog = false
-folder_id      = "390812006260"
+datadog_enable    = false
+project_folder_id = "390812006260"

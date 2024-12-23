@@ -45,19 +45,20 @@ Links to documentation and other resources required to develop and iterate in th
 
 ### 📓 Terraform Documentation
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 #### Providers
 
 | Name | Version |
 |------|---------|
-| google | 5.39.1 |
+| google | 6.14.1 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.2.1 |
-| projects | github.com/osinfra-io/terraform-google-project | v0.3.0 |
+| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
+| helpers | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
+| projects | github.com/osinfra-io/terraform-google-project | v0.4.5 |
 
 #### Resources
 
@@ -69,13 +70,12 @@ Links to documentation and other resources required to develop and iterate in th
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
 | datadog\_api\_key | Datadog API key | `string` | n/a | yes |
 | datadog\_app\_key | Datadog APP key | `string` | n/a | yes |
-| enable\_datadog | Enable Datadog integration | `bool` | `false` | no |
-| environment | The environment suffix for example: `sb` (Sandbox), `nonprod` (Non-Production), `prod` (Production) | `string` | `"sb"` | no |
-| folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
+| datadog\_enable | Enable Datadog integration | `bool` | `false` | no |
 | primary\_domain | The main domain associated with your Google Workspace account. By default, your users get a username at this domain | `string` | `"osinfra.io"` | no |
+| project\_billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
+| project\_folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
 
 #### Outputs
 
@@ -83,4 +83,4 @@ Links to documentation and other resources required to develop and iterate in th
 |------|-------------|
 | project\_ids | The project IDs |
 | project\_numbers | The project numbers |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

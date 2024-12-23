@@ -1,2 +1,1 @@
-environment = "nonprod"
-folder_id   = "988946273293"
+project_folder_id = "988946273293"
