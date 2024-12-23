@@ -3,10 +3,10 @@
 
 output "project_ids" {
   description = "The project IDs"
-  value       = { for k, v in module.projects : k => v.project_id }
+  value       = { for k, v in module.projects : k => v.id }
 }
 
 output "project_numbers" {
   description = "The project numbers"
-  value       = { for k, v in module.projects : k => v.project_number }
+  value       = { for k, v in module.projects : k => v.number }
 }
