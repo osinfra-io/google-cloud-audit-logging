@@ -50,13 +50,13 @@ Links to documentation and other resources required to develop and iterate in th
 
 | Name | Version |
 |------|---------|
-| google | 6.14.1 |
+| google | 6.19.0 |
 
 #### Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.0 |
+| datadog | github.com/osinfra-io/terraform-datadog-google-integration | v0.3.3 |
 | helpers | github.com/osinfra-io/terraform-core-helpers//root | v0.1.2 |
 | projects | github.com/osinfra-io/terraform-google-project | v0.4.5 |
 
