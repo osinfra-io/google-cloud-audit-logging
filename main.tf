@@ -37,14 +37,12 @@ provider "datadog" {
 # https://github.com/osinfra-io/terraform-datadog-google-integration
 
 module "datadog" {
-  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.0"
+  source = "github.com/osinfra-io/terraform-datadog-google-integration?ref=v0.3.3"
   count  = var.datadog_enable ? 1 : 0
 
-  api_key                            = var.datadog_api_key
-  is_cspm_enabled                    = true
-  is_security_command_center_enabled = true
-  labels                             = module.helpers.labels
-  project                            = module.projects["audit01"].id
+  api_key = var.datadog_api_key
+  labels  = module.helpers.labels
+  project = module.projects["audit01"].id
 }
 
 # Google Project Module (osinfra.io)
@@ -78,7 +76,8 @@ module "projects" {
     "cloudresourcemanager.googleapis.com",
     "compute.googleapis.com",
     "iam.googleapis.com",
-    "monitoring.googleapis.com"
+    "monitoring.googleapis.com",
+    "securitycenter.googleapis.com"
   ]
 }
 
