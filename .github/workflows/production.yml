@@ -11,6 +11,7 @@ on:
 # caller workflow level or in the specific job that calls the reusable workflow.
 
 permissions:
+  contents: read
   id-token: write
 
 jobs:
