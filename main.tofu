@@ -95,8 +95,6 @@ module "projects" {
 # https://search.opentofu.org/provider/hashicorp/google/latest/docs/resources/google_project_iam_member
 
 resource "google_project_iam_member" "backend_service_account_groups" {
-  # Ensure roles do not impersonate or manage Service Accounts used at project level
-  # checkov:skip=CKV_GCP_49: This is a requirement for OpenTofu to manage resources
   for_each = toset(
     [
       "audit01"

@@ -4,12 +4,6 @@
 
 [![Dependabot](https://github.com/osinfra-io/google-cloud-audit-logging/actions/workflows/dependabot.yml/badge.svg)](https://github.com/osinfra-io/google-cloud-audit-logging/actions/workflows/dependabot.yml)
 
-**[Infracost](https://www.infracost.io):**
-
-[![infracost](https://img.shields.io/endpoint?url=https://dashboard.api.infracost.io/shields/json/cbeecfe3-576f-4553-984c-e451a575ee47/repos/f0cb1c98-ae8e-48c8-9cbe-8f00a8901fd7/branch/1ee44b4d-8e3f-4fc9-8c39-2a7c767cf0c8)](https://dashboard.infracost.io/org/osinfra-io/repos/f0cb1c98-ae8e-48c8-9cbe-8f00a8901fd7?tab=settings)
-
-💵 Monthly estimates based on Infracost baseline costs.
-
 ## 📄 Repository Description
 
 This repository creates a centralized audit logging project that aligns with our [Google Cloud landing zone platform](https://docs.osinfra.io/google-cloud-platform/landing-zone) design. A landing zone should be a prerequisite to deploying enterprise workloads in a cloud environment.
@@ -27,60 +21,15 @@ Our focus is on the core fundamental practice of platform engineering, Infrastru
 
 To avoid slowing down stream-aligned teams, we want to open up the possibility for contributions. The Open Source Infrastructure (as Code) model allows team members external to the platform team to contribute with only a slight increase in cognitive load. This section is for developers who want to contribute to this repository, describing the tools used, the skills, and the knowledge required, along with OpenTofu documentation.
 
-See the documentation for setting up a development environment [here](https://docs.osinfra.io/fundamentals/development-setup).
+See the [documentation](https://docs.osinfra.io/fundamentals/development-setup) for setting up a development environment.
 
 ### 🛠️ Tools
 
-- [checkov](https://github.com/bridgecrewio/checkov)
-- [infracost](https://github.com/infracost/infracost)
 - [pre-commit](https://github.com/pre-commit/pre-commit)
-- [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
-- [terraform-docs](https://github.com/terraform-docs/terraform-docs)
+- [osinfra-pre-commit-hooks](https://github.com/osinfra-io/pre-commit-hooks)
 
 ### 📋 Skills and Knowledge
 
 Links to documentation and other resources required to develop and iterate in this repository successfully.
 
 - [audit logs](https://cloud.google.com/logging/docs/audit)
-
-### 📓 OpenTofu Documentation
-
-<!-- BEGIN_TF_DOCS -->
-#### Providers
-
-| Name | Version |
-|------|---------|
-| google | 6.47.0 |
-
-#### Modules
-
-| Name | Source | Version |
-|------|--------|---------|
-| datadog | github.com/osinfra-io/opentofu-datadog-google-integration | v0.3.6 |
-| helpers | github.com/osinfra-io/opentofu-core-helpers//root | v0.1.3 |
-| projects | github.com/osinfra-io/opentofu-google-project | v0.4.6 |
-
-#### Resources
-
-| Name | Type |
-|------|------|
-| [google_project_iam_member.backend_service_account_groups](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-
-#### Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| datadog\_api\_key | Datadog API key | `string` | n/a | yes |
-| datadog\_app\_key | Datadog APP key | `string` | n/a | yes |
-| datadog\_enable | Enable Datadog integration | `bool` | `false` | no |
-| primary\_domain | The main domain associated with your Google Workspace account. By default, your users get a username at this domain | `string` | `"osinfra.io"` | no |
-| project\_billing\_account | The alphanumeric ID of the billing account this project belongs to | `string` | `"01C550-A2C86B-B8F16B"` | no |
-| project\_folder\_id | The numeric ID of the folder this project should be created under. Only one of `org_id` or `folder_id` may be specified | `string` | n/a | yes |
-
-#### Outputs
-
-| Name | Description |
-|------|-------------|
-| project\_ids | The project IDs |
-| project\_numbers | The project numbers |
-<!-- END_TF_DOCS -->
