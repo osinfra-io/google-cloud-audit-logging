@@ -87,9 +87,7 @@ module "datadog" {
   count  = var.datadog_enable ? 1 : 0
 
   api_key = var.datadog_api_key
-  labels = merge(module.helpers.labels, {
-    "your-key" = "your-value"
-  })
+  labels  = module.helpers.labels
   project = module.projects["audit01"].id
 }
 
@@ -142,4 +140,10 @@ resource "google_project_iam_member" "backend_service_account_groups" {
   member  = "group:backend-${module.helpers.env}@${var.primary_domain}"
   project = module.projects[each.key].id
   role    = "roles/resourcemanager.projectIamAdmin"
+}
+
+resource "null_resource" "force_apply" {
+  triggers = {
+    always_run = timestamp()
+  }
 }
